@@ -60,3 +60,26 @@ const activeElemOnScroll = function () {
 }
 
 addEventOnElem(window, "scroll", activeElemOnScroll);
+
+/*Funcion para el boton de cambiar de aspecto*/
+
+document.addEventListener("DOMContentLoaded", function(){
+  const toggleButton = document.getElementById('claro-oscuro');
+
+function toggleTheme() {
+  document.body.classList.toggle('dark-mode');
+
+  if (document.body.classList.contains('dark-mode')){
+    localStorage.setItem('theme', 'dark');
+  } else {
+    localStorage.setItem('theme', 'light');
+  }
+}
+
+toggleButton.addEventListener('click', toggleTheme);
+
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+  document.body.classList.add('dark-mode')
+}
+});
